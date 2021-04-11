@@ -60,13 +60,13 @@ RUN docker-php-ext-install bcmath \
 
 RUN pecl install -o -f \
     apcu \
-    xdebug
+    xdebug-2.9.8
 
 RUN docker-php-ext-enable apcu
 
 WORKDIR /var/www/html
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1
 
 RUN wget https://github.com/Medium/phantomjs/releases/download/v2.1.1/phantomjs-2.1.1-linux-x86_64.tar.bz2
 RUN tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
